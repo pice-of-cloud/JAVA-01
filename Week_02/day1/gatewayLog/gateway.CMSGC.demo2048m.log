@@ -1,0 +1,25 @@
+Java HotSpot(TM) 64-Bit Server VM (25.65-b01) for linux-amd64 JRE (1.8.0_65-b17), built on Oct  6 2015 17:16:12 by "java_re" with gcc 4.3.0 20080428 (Red Hat 4.3.0-8)
+Memory: 4k page, physical 32862844k(6108968k free), swap 0k(0k free)
+CommandLine flags: -XX:InitialHeapSize=2147483648 -XX:MaxHeapSize=2147483648 -XX:MaxNewSize=348966912 -XX:MaxTenuringThreshold=6 -XX:NewSize=348966912 -XX:OldPLABSize=16 -XX:OldSize=697933824 -XX:+PrintGC -XX:+PrintGCDetails -XX:+PrintGCTimeStamps -XX:-UseAdaptiveSizePolicy -XX:+UseCompressedClassPointers -XX:+UseCompressedOops -XX:+UseConcMarkSweepGC -XX:+UseParNewGC 
+2.803: [GC (Allocation Failure) 2.803: [ParNew: 272640K->14635K(306688K), 0.0266471 secs] 272640K->14635K(2063104K), 0.0267832 secs] [Times: user=0.09 sys=0.01, real=0.03 secs] 
+2.834: [GC (CMS Initial Mark) [1 CMS-initial-mark: 0K(1756416K)] 25214K(2063104K), 0.0043370 secs] [Times: user=0.02 sys=0.00, real=0.01 secs] 
+2.838: [CMS-concurrent-mark-start]
+2.870: [CMS-concurrent-mark: 0.032/0.032 secs] [Times: user=0.11 sys=0.00, real=0.03 secs] 
+2.871: [CMS-concurrent-preclean-start]
+2.877: [CMS-concurrent-preclean: 0.006/0.006 secs] [Times: user=0.03 sys=0.01, real=0.00 secs] 
+2.877: [CMS-concurrent-abortable-preclean-start]
+4.302: [CMS-concurrent-abortable-preclean: 1.174/1.425 secs] [Times: user=5.30 sys=0.05, real=1.43 secs] 
+4.303: [GC (CMS Final Remark) [YG occupancy: 168576 K (306688 K)]4.303: [Rescan (parallel) , 0.0310907 secs]4.334: [weak refs processing, 0.0000400 secs]4.334: [class unloading, 0.0055137 secs]4.339: [scrub symbol table, 0.0042293 secs]4.344: [scrub string table, 0.0005950 secs][1 CMS-remark: 0K(1756416K)] 168576K(2063104K), 0.0432977 secs] [Times: user=0.14 sys=0.01, real=0.04 secs] 
+4.346: [CMS-concurrent-sweep-start]
+4.346: [CMS-concurrent-sweep: 0.000/0.000 secs] [Times: user=0.00 sys=0.00, real=0.00 secs] 
+4.346: [CMS-concurrent-reset-start]
+4.352: [CMS-concurrent-reset: 0.006/0.006 secs] [Times: user=0.02 sys=0.00, real=0.01 secs] 
+5.250: [GC (Allocation Failure) 5.250: [ParNew: 287275K->23456K(306688K), 0.0287550 secs] 287275K->23456K(2063104K), 0.0288530 secs] [Times: user=0.10 sys=0.00, real=0.03 secs] 
+Heap
+ par new generation   total 306688K, used 145124K [0x0000000080000000, 0x0000000094cc0000, 0x0000000094cc0000)
+  eden space 272640K,  44% used [0x0000000080000000, 0x00000000876d1170, 0x0000000090a40000)
+  from space 34048K,  68% used [0x0000000090a40000, 0x0000000092128258, 0x0000000092b80000)
+  to   space 34048K,   0% used [0x0000000092b80000, 0x0000000092b80000, 0x0000000094cc0000)
+ concurrent mark-sweep generation total 1756416K, used 0K [0x0000000094cc0000, 0x0000000100000000, 0x0000000100000000)
+ Metaspace       used 33681K, capacity 35178K, committed 35384K, reserved 1079296K
+  class space    used 4345K, capacity 4633K, committed 4732K, reserved 1048576K

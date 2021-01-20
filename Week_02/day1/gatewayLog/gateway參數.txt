@@ -1,0 +1,27 @@
+java -Xmx128m -Xms128m -XX:-UseAdaptiveSizePolicy -XX:+PrintGCDetails -Xloggc:serverLog/gateway.SerialGC.demo128m.log  -XX:+UseSerialGC -jar gateway-server-0.0.1-SNAPSHOT.jar
+java -Xmx512m -Xms512m -XX:-UseAdaptiveSizePolicy -XX:+PrintGCDetails -Xloggc:serverLog/gateway.SerialGC.demo512m.log  -XX:+UseSerialGC -jar gateway-server-0.0.1-SNAPSHOT.jar
+java -Xmx1g   -Xms1g   -XX:-UseAdaptiveSizePolicy -XX:+PrintGCDetails -Xloggc:serverLog/gateway.SerialGC.demo1024m.log -XX:+UseSerialGC -jar gateway-server-0.0.1-SNAPSHOT.jar
+java -Xmx2g   -Xms2g   -XX:-UseAdaptiveSizePolicy -XX:+PrintGCDetails -Xloggc:serverLog/gateway.SerialGC.demo2048m.log -XX:+UseSerialGC -jar gateway-server-0.0.1-SNAPSHOT.jar
+java -Xmx4g   -Xms4g   -XX:-UseAdaptiveSizePolicy -XX:+PrintGCDetails -Xloggc:serverLog/gateway.SerialGC.demo4096m.log -XX:+UseSerialGC -jar gateway-server-0.0.1-SNAPSHOT.jar
+
+
+java -Xmx128m -Xms128m  -XX:-UseAdaptiveSizePolicy -XX:+PrintGCDetails  -Xloggc:serverLog/gateway.ParallelGC.demo128m.log   -XX:+UseParallelGC -jar gateway-server-0.0.1-SNAPSHOT.jar
+java -Xmx512m -Xms512m  -XX:-UseAdaptiveSizePolicy -XX:+PrintGCDetails  -Xloggc:serverLog/gateway.ParallelGC.demo512m.log   -XX:+UseParallelGC -jar gateway-server-0.0.1-SNAPSHOT.jar
+java -Xmx1g   -Xms1g    -XX:-UseAdaptiveSizePolicy -XX:+PrintGCDetails  -Xloggc:serverLog/gateway.ParallelGC.demo1024m.log  -XX:+UseParallelGC -jar gateway-server-0.0.1-SNAPSHOT.jar
+java -Xmx2g   -Xms2g    -XX:-UseAdaptiveSizePolicy -XX:+PrintGCDetails  -Xloggc:serverLog/gateway.ParallelGC.demo2048m.log  -XX:+UseParallelGC -jar gateway-server-0.0.1-SNAPSHOT.jar
+java -Xmx4g   -Xms4g    -XX:-UseAdaptiveSizePolicy -XX:+PrintGCDetails  -Xloggc:serverLog/gateway.ParallelGC.demo4096m.log  -XX:+UseParallelGC -jar gateway-server-0.0.1-SNAPSHOT.jar
+
+
+
+java -Xmx128m -Xms128m  -XX:-UseAdaptiveSizePolicy -XX:+PrintGCDetails  -Xloggc:serverLog/gateway.CMSGC.demo128m.log   -XX:+UseConcMarkSweepGC -jar gateway-server-0.0.1-SNAPSHOT.jar
+java -Xmx512m -Xms512m  -XX:-UseAdaptiveSizePolicy -XX:+PrintGCDetails  -Xloggc:serverLog/gateway.CMSGC.demo512m.log   -XX:+UseConcMarkSweepGC -jar gateway-server-0.0.1-SNAPSHOT.jar
+java -Xmx1g   -Xms1g    -XX:-UseAdaptiveSizePolicy -XX:+PrintGCDetails  -Xloggc:serverLog/gateway.CMSGC.demo1024m.log  -XX:+UseConcMarkSweepGC -jar gateway-server-0.0.1-SNAPSHOT.jar
+java -Xmx2g   -Xms2g    -XX:-UseAdaptiveSizePolicy -XX:+PrintGCDetails  -Xloggc:serverLog/gateway.CMSGC.demo2048m.log  -XX:+UseConcMarkSweepGC -jar gateway-server-0.0.1-SNAPSHOT.jar
+java -Xmx4g   -Xms4g    -XX:-UseAdaptiveSizePolicy -XX:+PrintGCDetails  -Xloggc:serverLog/gateway.CMSGC.demo4096m.log  -XX:+UseConcMarkSweepGC -jar gateway-server-0.0.1-SNAPSHOT.jar
+
+
+java -Xmx128m -Xms128m  -XX:-UseAdaptiveSizePolicy -XX:+PrintGCDetails  -Xloggc:serverLog/gateway.G1GC.demo128m.log  -XX:+UseG1GC -XX:MaxGCPauseMillis=50 -jar gateway-server-0.0.1-SNAPSHOT.jar
+java -Xmx512m -Xms512m  -XX:-UseAdaptiveSizePolicy -XX:+PrintGCDetails  -Xloggc:serverLog/gateway.G1GC.demo512m.log  -XX:+UseG1GC -XX:MaxGCPauseMillis=50 -jar gateway-server-0.0.1-SNAPSHOT.jar
+java -Xmx1g   -Xms1g    -XX:-UseAdaptiveSizePolicy -XX:+PrintGCDetails  -Xloggc:serverLog/gateway.G1GC.demo1024m.log -XX:+UseG1GC -XX:MaxGCPauseMillis=50 -jar gateway-server-0.0.1-SNAPSHOT.jar
+java -Xmx2g   -Xms2g    -XX:-UseAdaptiveSizePolicy -XX:+PrintGCDetails  -Xloggc:serverLog/gateway.G1GC.demo2048m.log -XX:+UseG1GC -XX:MaxGCPauseMillis=50 -jar gateway-server-0.0.1-SNAPSHOT.jar
+java -Xmx4g   -Xms4g    -XX:-UseAdaptiveSizePolicy -XX:+PrintGCDetails  -Xloggc:serverLog/gateway.G1GC.demo4096m.log -XX:+UseG1GC -XX:MaxGCPauseMillis=50 -jar gateway-server-0.0.1-SNAPSHOT.jar

@@ -1,0 +1,19 @@
+Java HotSpot(TM) 64-Bit Server VM (25.65-b01) for linux-amd64 JRE (1.8.0_65-b17), built on Oct  6 2015 17:16:12 by "java_re" with gcc 4.3.0 20080428 (Red Hat 4.3.0-8)
+Memory: 4k page, physical 32862844k(660040k free), swap 0k(0k free)
+CommandLine flags: -XX:InitialHeapSize=525805504 -XX:MaxHeapSize=536870912 -XX:+PrintGC -XX:+PrintGCDetails -XX:+PrintGCTimeStamps -XX:-UseAdaptiveSizePolicy -XX:+UseCompressedClassPointers -XX:+UseCompressedOops -XX:+UseSerialGC 
+0.264: [GC (Allocation Failure) 0.264: [DefNew: 137152K->17087K(154240K), 0.0888913 secs] 137152K->47130K(496960K), 0.0890166 secs] [Times: user=0.02 sys=0.07, real=0.09 secs] 
+0.410: [GC (Allocation Failure) 0.410: [DefNew: 154239K->17087K(154240K), 0.1730883 secs] 184282K->95152K(496960K), 0.1732060 secs] [Times: user=0.02 sys=0.15, real=0.18 secs] 
+0.646: [GC (Allocation Failure) 0.646: [DefNew: 154239K->17086K(154240K), 0.5223175 secs] 232304K->131119K(496960K), 0.5224341 secs] [Times: user=0.01 sys=0.51, real=0.52 secs] 
+Heap
+ def new generation   total 154240K, used 22962K [0x00000000e0000000, 0x00000000ea750000, 0x00000000eaaa0000)
+  eden space 137152K,   4% used [0x00000000e0000000, 0x00000000e05bd320, 0x00000000e85f0000)
+  from space 17088K,  99% used [0x00000000e96a0000, 0x00000000ea74f858, 0x00000000ea750000)
+  to   space 17088K,   0% used [0x00000000e85f0000, 0x00000000e85f0000, 0x00000000e96a0000)
+ tenured generation   total 342720K, used 114033K [0x00000000eaaa0000, 0x00000000ff950000, 0x0000000100000000)
+   the space 342720K,  33% used [0x00000000eaaa0000, 0x00000000f19fc4c0, 0x00000000f19fc600, 0x00000000ff950000)
+ Metaspace       used 2531K, capacity 4486K, committed 4864K, reserved 1056768K
+  class space    used 274K, capacity 386K, committed 512K, reserved 1048576K
+
+
+ def new generation   total 154240K, used 22962K   22962/154240=15%
+ tenured generation   total 342720K, used 114033K  114033/342720=33%

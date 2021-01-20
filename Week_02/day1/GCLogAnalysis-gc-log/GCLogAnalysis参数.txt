@@ -1,0 +1,163 @@
+//UseSerialGC
+java -Xmx128m -XX:+PrintGCDetails  -Xloggc:SerialGC.demo128m.log -XX:-UseAdaptiveSizePolicy -XX:+UseSerialGC  GCLogAnalysis
+
+java -Xmx512m -XX:+PrintGCDetails  -Xloggc:SerialGC.demo512m.log -XX:-UseAdaptiveSizePolicy -XX:+UseSerialGC  GCLogAnalysis
+
+java -Xmx1024m -XX:+PrintGCDetails -Xloggc:SerialGC.demo1024m.log -XX:-UseAdaptiveSizePolicy -XX:+UseSerialGC  GCLogAnalysis
+
+java -Xmx2048m -XX:+PrintGCDetails -Xloggc:SerialGC.demo2048m.log -XX:-UseAdaptiveSizePolicy -XX:+UseSerialGC  GCLogAnalysis
+
+java -Xmx4096m -XX:+PrintGCDetails -Xloggc:SerialGC.demo4096m.log -XX:-UseAdaptiveSizePolicy -XX:+UseSerialGC  GCLogAnalysis
+
+
+[root@Local0230 test]# java -Xmx512m -XX:+PrintGCDetails  -Xloggc:SerialGC.demo512m.log -XX:-UseAdaptiveSizePolicy -XX:+UseSerialGC  GCLogAnalysis
+正在执行...
+执行结束!共生成对象次数:1485
+[root@Local0230 test]# 
+[root@Local0230 test]# java -Xmx1024m -XX:+PrintGCDetails -Xloggc:SerialGC.demo1024m.log -XX:-UseAdaptiveSizePolicy -XX:+UseSerialGC  GCLogAnalysis
+正在执行...
+执行结束!共生成对象次数:2593
+[root@Local0230 test]# 
+[root@Local0230 test]# java -Xmx2048m -XX:+PrintGCDetails -Xloggc:SerialGC.demo2048m.log -XX:-UseAdaptiveSizePolicy -XX:+UseSerialGC  GCLogAnalysis
+正在执行...
+执行结束!共生成对象次数:3997
+[root@Local0230 test]# 
+[root@Local0230 test]# java -Xmx4096m -XX:+PrintGCDetails -Xloggc:SerialGC.demo4096m.log -XX:-UseAdaptiveSizePolicy -XX:+UseSerialGC  GCLogAnalysis
+正在执行...
+执行结束!共生成对象次数:3188
+
+
+
+
+//UseParallelGC
+java -Xmx128m -XX:+PrintGCDetails  -Xloggc:ParallelGC.demo128m.log -XX:-UseAdaptiveSizePolicy -XX:+UseParallelGC  GCLogAnalysis
+
+java -Xmx512m -XX:+PrintGCDetails  -Xloggc:ParallelGC.demo512m.log -XX:-UseAdaptiveSizePolicy -XX:+UseParallelGC  GCLogAnalysis
+
+java -Xmx1024m -XX:+PrintGCDetails -Xloggc:ParallelGC.demo1024m.log -XX:-UseAdaptiveSizePolicy -XX:+UseParallelGC  GCLogAnalysis
+
+java -Xmx2048m -XX:+PrintGCDetails -Xloggc:ParallelGC.demo2048m.log -XX:-UseAdaptiveSizePolicy -XX:+UseParallelGC  GCLogAnalysis
+
+java -Xmx4096m -XX:+PrintGCDetails -Xloggc:ParallelGC.demo4096m.log -XX:-UseAdaptiveSizePolicy -XX:+UseParallelGC  GCLogAnalysis
+
+
+java -Xmx4096m -XX:+PrintGCDetails -Xloggc:ParallelGC.demo4096m.log -XX:-UseAdaptiveSizePolicy -XX:+UseParallelGC  GCLogAnalysisException in thread "main" java.lang.OutOfMemoryError: Java heap space
+        at GCLogAnalysis.generateGarbage(GCLogAnalysis.java:48)
+        at GCLogAnalysis.main(GCLogAnalysis.java:25)
+[root@Local0230 test]# 
+[root@Local0230 test]# java -Xmx512m -XX:+PrintGCDetails  -Xloggc:ParallelGC.demo512m.log -XX:-UseAdaptiveSizePolicy -XX:+UseParallelGC  GCLogAnalysis
+正在执行...
+执行结束!共生成对象次数:2429
+[root@Local0230 test]# 
+[root@Local0230 test]# java -Xmx1024m -XX:+PrintGCDetails -Xloggc:ParallelGC.demo1024m.log -XX:-UseAdaptiveSizePolicy -XX:+UseParallelGC  GCLogAnalysis
+正在执行...
+执行结束!共生成对象次数:3395
+[root@Local0230 test]# 
+[root@Local0230 test]# java -Xmx2048m -XX:+PrintGCDetails -Xloggc:ParallelGC.demo2048m.log -XX:-UseAdaptiveSizePolicy -XX:+UseParallelGC  GCLogAnalysis
+正在执行...
+执行结束!共生成对象次数:3797
+[root@Local0230 test]# 
+[root@Local0230 test]# java -Xmx4096m -XX:+PrintGCDetails -Xloggc:ParallelGC.demo4096m.log -XX:-UseAdaptiveSizePolicy -XX:+UseParallelGC  GCLogAnalysis
+正在执行...
+执行结束!共生成对象次数:3702
+
+
+//UseConcMarkSweepGC
+java -Xmx128m -XX:+PrintGCDetails  -Xloggc:cmsGC.demo128m.log -XX:-UseAdaptiveSizePolicy -XX:+UseConcMarkSweepGC  GCLogAnalysis
+
+java -Xmx512m -XX:+PrintGCDetails  -Xloggc:cmsGC.demo512m.log -XX:-UseAdaptiveSizePolicy -XX:+UseConcMarkSweepGC  GCLogAnalysis
+
+java -Xmx1024m -XX:+PrintGCDetails -Xloggc:cmsGC.demo1024m.log -XX:-UseAdaptiveSizePolicy -XX:+UseConcMarkSweepGC  GCLogAnalysis
+
+java -Xmx2048m -XX:+PrintGCDetails -Xloggc:cmsGC.demo2048m.log -XX:-UseAdaptiveSizePolicy -XX:+UseConcMarkSweepGC  GCLogAnalysis
+
+java -Xmx4096m -XX:+PrintGCDetails -Xloggc:cmsGC.demo4096m.log -XX:-UseAdaptiveSizePolicy -XX:+UseConcMarkSweepGC  GCLogAnalysis
+
+
+[root@Local0230 test]# 
+[root@Local0230 test]# java -Xmx512m -XX:+PrintGCDetails  -Xloggc:cmsGC.demo512m.log -XX:-UseAdaptiveSizePolicy -XX:+UseConcMarkSweepGC  GCLogAnalysis
+正在执行...
+执行结束!共生成对象次数:2575
+[root@Local0230 test]# 
+[root@Local0230 test]# java -Xmx1024m -XX:+PrintGCDetails -Xloggc:cmsGC.demo1024m.log -XX:-UseAdaptiveSizePolicy -XX:+UseConcMarkSweepGC  GCLogAnalysis
+正在执行...
+执行结束!共生成对象次数:2530
+[root@Local0230 test]# 
+[root@Local0230 test]# java -Xmx2048m -XX:+PrintGCDetails -Xloggc:cmsGC.demo2048m.log -XX:-UseAdaptiveSizePolicy -XX:+UseConcMarkSweepGC  GCLogAnalysis
+正在执行...
+执行结束!共生成对象次数:4062
+[root@Local0230 test]# 
+[root@Local0230 test]# java -Xmx4096m -XX:+PrintGCDetails -Xloggc:cmsGC.demo4096m.log -XX:-UseAdaptiveSizePolicy -XX:+UseConcMarkSweepGC  GCLogAnalysis
+正在执行...
+执行结束!共生成对象次数:3625
+
+
+//UseG1GC 50ms
+java -Xmx128m -XX:+PrintGCDetails  -Xloggc:G1GC.demo128m.log -XX:-UseAdaptiveSizePolicy -XX:+UseG1GC -XX:MaxGCPauseMillis=50 GCLogAnalysis
+
+java -Xmx512m -XX:+PrintGCDetails  -Xloggc:G1GC.demo512m.log -XX:-UseAdaptiveSizePolicy -XX:+UseG1GC -XX:MaxGCPauseMillis=50 GCLogAnalysis
+
+java -Xmx1024m -XX:+PrintGCDetails -Xloggc:G1GC.demo1024m.log -XX:-UseAdaptiveSizePolicy -XX:+UseG1GC -XX:MaxGCPauseMillis=50 GCLogAnalysis
+
+java -Xmx2048m -XX:+PrintGCDetails -Xloggc:G1GC.demo2048m.log -XX:-UseAdaptiveSizePolicy -XX:+UseG1GC -XX:MaxGCPauseMillis=50 GCLogAnalysis
+
+java -Xmx4096m -XX:+PrintGCDetails -Xloggc:G1GC.demo4096m.log -XX:-UseAdaptiveSizePolicy -XX:+UseG1GC -XX:MaxGCPauseMillis=50 GCLogAnalysis
+
+
+
+        at GCLogAnalysis.main(GCLogAnalysis.java:25)
+[root@Local0230 test]# 
+[root@Local0230 test]# java -Xmx512m -XX:+PrintGCDetails  -Xloggc:G1GC.demo512m.log -XX:-UseAdaptiveSizePolicy -XX:+UseG1GC -XX:MaxGCPauseMillis=50 GCLogAnalysis
+正在执行...
+执行结束!共生成对象次数:3492
+[root@Local0230 test]# 
+[root@Local0230 test]# java -Xmx1024m -XX:+PrintGCDetails -Xloggc:G1GC.demo1024m.log -XX:-UseAdaptiveSizePolicy -XX:+UseG1GC -XX:MaxGCPauseMillis=50 GCLogAnalysis
+正在执行...
+执行结束!共生成对象次数:1791
+[root@Local0230 test]# 
+[root@Local0230 test]# java -Xmx2048m -XX:+PrintGCDetails -Xloggc:G1GC.demo2048m.log -XX:-UseAdaptiveSizePolicy -XX:+UseG1GC -XX:MaxGCPauseMillis=50 GCLogAnalysis
+正在执行...
+执行结束!共生成对象次数:1785
+[root@Local0230 test]# 
+[root@Local0230 test]# java -Xmx4096m -XX:+PrintGCDetails -Xloggc:G1GC.demo4096m.log -XX:-UseAdaptiveSizePolicy -XX:+UseG1GC -XX:MaxGCPauseMillis=50 GCLogAnalysis
+正在执行...
+执行结束!共生成对象次数:1911
+
+
+//UseG1GC 100ms
+java -Xmx128m -XX:+PrintGCDetails  -Xloggc:G1GC.demo128m.log -XX:-UseAdaptiveSizePolicy -XX:+UseG1GC -XX:MaxGCPauseMillis=100 GCLogAnalysis
+
+java -Xmx512m -XX:+PrintGCDetails  -Xloggc:G1GC.demo512m.log -XX:-UseAdaptiveSizePolicy -XX:+UseG1GC -XX:MaxGCPauseMillis=100 GCLogAnalysis
+
+java -Xmx1024m -XX:+PrintGCDetails -Xloggc:G1GC.demo1024m.log -XX:-UseAdaptiveSizePolicy -XX:+UseG1GC -XX:MaxGCPauseMillis=100 GCLogAnalysis
+
+java -Xmx2048m -XX:+PrintGCDetails -Xloggc:G1GC.demo2048m.log -XX:-UseAdaptiveSizePolicy -XX:+UseG1GC -XX:MaxGCPauseMillis=100 GCLogAnalysis
+
+java -Xmx4096m -XX:+PrintGCDetails -Xloggc:G1GC.demo4096m.log -XX:-UseAdaptiveSizePolicy -XX:+UseG1GC -XX:MaxGCPauseMillis=100 GCLogAnalysis
+
+
+java -Xmx4096m -XX:+PrintGCDetails -Xloggc:G1GC.demo4096m.log -XX:-UseAdaptiveSi正在执行...
+zePolicy -XX:+UseG1GC -XX:MaxGCPauseMillis=100 GCLogAnalysisException in thread "main" java.lang.OutOfMemoryError: Java heap space
+        at java.util.Arrays.copyOf(Arrays.java:3332)
+        at java.lang.AbstractStringBuilder.expandCapacity(AbstractStringBuilder.java:137)
+        at java.lang.AbstractStringBuilder.ensureCapacityInternal(AbstractStringBuilder.java:121)
+        at java.lang.AbstractStringBuilder.append(AbstractStringBuilder.java:647)
+        at java.lang.StringBuilder.append(StringBuilder.java:208)
+        at GCLogAnalysis.generateGarbage(GCLogAnalysis.java:56)
+        at GCLogAnalysis.main(GCLogAnalysis.java:25)
+[root@Local0230 test]# 
+[root@Local0230 test]# java -Xmx512m -XX:+PrintGCDetails  -Xloggc:G1GC.demo512m.log -XX:-UseAdaptiveSizePolicy -XX:+UseG1GC -XX:MaxGCPauseMillis=100 GCLogAnalysis
+正在执行...
+执行结束!共生成对象次数:3759
+[root@Local0230 test]# 
+[root@Local0230 test]# java -Xmx1024m -XX:+PrintGCDetails -Xloggc:G1GC.demo1024m.log -XX:-UseAdaptiveSizePolicy -XX:+UseG1GC -XX:MaxGCPauseMillis=100 GCLogAnalysis
+正在执行...
+执行结束!共生成对象次数:1398
+[root@Local0230 test]# 
+[root@Local0230 test]# java -Xmx2048m -XX:+PrintGCDetails -Xloggc:G1GC.demo2048m.log -XX:-UseAdaptiveSizePolicy -XX:+UseG1GC -XX:MaxGCPauseMillis=100 GCLogAnalysis
+正在执行...
+执行结束!共生成对象次数:1335
+[root@Local0230 test]# 
+[root@Local0230 test]# java -Xmx4096m -XX:+PrintGCDetails -Xloggc:G1GC.demo4096m.log -XX:-UseAdaptiveSizePolicy -XX:+UseG1GC -XX:MaxGCPauseMillis=100 GCLogAnalysis
+正在执行...
+执行结束!共生成对象次数:1842

@@ -1,0 +1,22 @@
+Java HotSpot(TM) 64-Bit Server VM (25.65-b01) for linux-amd64 JRE (1.8.0_65-b17), built on Oct  6 2015 17:16:12 by "java_re" with gcc 4.3.0 20080428 (Red Hat 4.3.0-8)
+Memory: 4k page, physical 32862844k(696588k free), swap 0k(0k free)
+CommandLine flags: -XX:InitialHeapSize=525805504 -XX:MaxHeapSize=4294967296 -XX:+PrintGC -XX:+PrintGCDetails -XX:+PrintGCTimeStamps -XX:-UseAdaptiveSizePolicy -XX:+UseCompressedClassPointers -XX:+UseCompressedOops -XX:+UseSerialGC 
+0.255: [GC (Allocation Failure) 0.255: [DefNew: 137133K->17087K(154240K), 0.0231974 secs] 137133K->45458K(496960K), 0.0233246 secs] [Times: user=0.01 sys=0.01, real=0.02 secs] 
+0.333: [GC (Allocation Failure) 0.333: [DefNew: 154239K->17087K(154240K), 0.0306340 secs] 182610K->94352K(496960K), 0.0307333 secs] [Times: user=0.02 sys=0.01, real=0.03 secs] 
+0.417: [GC (Allocation Failure) 0.417: [DefNew: 154239K->17085K(154240K), 0.0453688 secs] 231504K->142035K(496960K), 0.0454679 secs] [Times: user=0.02 sys=0.03, real=0.05 secs] 
+0.519: [GC (Allocation Failure) 0.519: [DefNew: 154237K->17087K(154240K), 0.3905228 secs] 279187K->186759K(496960K), 0.3906218 secs] [Times: user=0.02 sys=0.37, real=0.39 secs] 
+0.966: [GC (Allocation Failure) 0.966: [DefNew: 154239K->17088K(154240K), 0.0517849 secs] 323911K->236473K(496960K), 0.0518823 secs] [Times: user=0.02 sys=0.03, real=0.05 secs] 
+1.078: [GC (Allocation Failure) 1.078: [DefNew: 154240K->17087K(154240K), 0.0473524 secs] 373625K->280683K(496960K), 0.0474422 secs] [Times: user=0.02 sys=0.02, real=0.05 secs] 
+Heap
+ def new generation   total 154240K, used 30442K [0x00000006c0000000, 0x00000006ca750000, 0x0000000715550000)
+  eden space 137152K,   9% used [0x00000006c0000000, 0x00000006c0d0aa08, 0x00000006c85f0000)
+  from space 17088K,  99% used [0x00000006c85f0000, 0x00000006c969fe78, 0x00000006c96a0000)
+  to   space 17088K,   0% used [0x00000006c96a0000, 0x00000006c96a0000, 0x00000006ca750000)
+ tenured generation   total 342720K, used 263595K [0x0000000715550000, 0x000000072a400000, 0x00000007c0000000)
+   the space 342720K,  76% used [0x0000000715550000, 0x00000007256bafa8, 0x00000007256bb000, 0x000000072a400000)
+ Metaspace       used 2531K, capacity 4486K, committed 4864K, reserved 1056768K
+  class space    used 274K, capacity 386K, committed 512K, reserved 1048576K
+
+
+def new generation   total 154240K, used 30442K   30442/154240K=19%
+enured generation   total 342720K, used 263595K   263595K/342720=77%
