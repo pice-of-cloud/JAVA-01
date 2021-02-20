@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                    http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+                    http://www.springframework.org/schema/context
+                    http://www.springframework.org/schema/context/spring-context-3.2.xsd http://www.springframework.org/schema/util https://www.springframework.org/schema/util/spring-util.xsd">
+
+    <bean id="school01" class="io.lvxy.xmlbean.beans.School">
+        <property name="schoolName" value="Geek"/>
+        <property name="klasses">
+            <list>
+                <ref bean="klass01"/>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="school02" class="io.lvxy.xmlbean.beans.School">
+        <property name="schoolName" value="Rise+"/>
+        <property name="klasses">
+            <list>
+                <ref bean="klass02"/>
+                <bean id="klass03" class="io.lvxy.xmlbean.beans.Klass">
+                    <property name="className" value="klass03"/>
+                </bean>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="klass01" class="io.lvxy.xmlbean.beans.Klass">
+        <property name="className" value="klassOne"/>
+        <property name="students">
+            <list>
+                <ref bean="student01"/>
+                <ref bean="student02"/>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="klass02" class="io.lvxy.xmlbean.beans.Klass">
+        <property name="className" value="klassTwo"/>
+        <property name="students">
+            <list>
+                <ref bean="student03"/>
+                <ref bean="student04"/>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="student01" class="io.lvxy.xmlbean.beans.Student">
+        <property name="grade" value="grade01"/>
+        <property name="name" value="Jun"/>
+        <property name="no" value="100000"/>
+    </bean>
+
+    <bean id="student02" class="io.lvxy.xmlbean.beans.Student">
+        <property name="grade" value="grade02"/>
+        <property name="name" value="Tom"/>
+        <property name="no" value="200000"/>
+    </bean>
+
+    <bean id="student03" class="io.lvxy.xmlbean.beans.Student">
+        <property name="grade" value="grade03"/>
+        <property name="name" value="Bob"/>
+        <property name="no" value="300000"/>
+
+    </bean>
+
+    <bean id="student04" class="io.lvxy.xmlbean.beans.Student">
+        <property name="grade" value="grade04"/>
+        <property name="name" value="May"/>
+        <property name="no" value="400000"/>
+    </bean>
+
+
+</beans>

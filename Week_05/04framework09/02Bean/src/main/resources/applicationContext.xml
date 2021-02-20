@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                    http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+                    http://www.springframework.org/schema/context
+                    http://www.springframework.org/schema/context/spring-context-3.2.xsd">
+
+    <bean id="bean01" class="io.lvxy.beans.Bean01"/>
+    <bean id="bean02" class="io.lvxy.beans.Bean02">
+        <constructor-arg value="hello"/>
+    </bean>
+
+    <bean id="bean03" class="io.lvxy.beans.Bean03" init-method="say"/>
+
+    <context:component-scan base-package="io.lvxy.beans.comp"/>
+</beans>

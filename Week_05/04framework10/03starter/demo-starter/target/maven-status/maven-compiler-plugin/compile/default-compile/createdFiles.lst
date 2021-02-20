@@ -1,0 +1,7 @@
+io/lvxy/demo/starter/config/DemoConfig.class
+io/lvxy/demo/starter/properties/Student.class
+META-INF/spring-configuration-metadata.json
+io/lvxy/demo/starter/service/DemoService.class
+io/lvxy/demo/starter/properties/School.class
+io/lvxy/demo/starter/properties/Klass.class
+io/lvxy/demo/starter/properties/ISchool.class
