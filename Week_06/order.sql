@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 5.7.23, for macos10.13 (x86_64)
 --
--- Host: 127.0.0.1    Database: order
+-- Host: 127.0.0.1    Database: businessCenter
 -- ------------------------------------------------------
 -- Server version	5.7.23
 
@@ -14,38 +14,6 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-
---
--- Table structure for table `bp_brand`
---
-
-DROP TABLE IF EXISTS `bp_brand`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `bp_brand` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `name` varchar(64) DEFAULT NULL COMMENT '名称',
-  `first_letter` varchar(8) DEFAULT NULL COMMENT '首字母',
-  `sort` int(11) DEFAULT NULL COMMENT '排序',
-  `factory_status` int(1) DEFAULT NULL COMMENT '是否为品牌制造商：0->不是；1->是',
-  `show_status` int(1) DEFAULT NULL COMMENT '是否显示',
-  `product_count` int(11) DEFAULT NULL COMMENT '产品数量',
-  `product_comment_count` int(11) DEFAULT NULL COMMENT '产品评论数量',
-  `logo` varchar(255) DEFAULT NULL COMMENT '品牌logo',
-  `big_pic` varchar(255) DEFAULT NULL COMMENT '专区大图',
-  `brand_story` text COMMENT '品牌故事',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='商品品牌表';
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `bp_brand`
---
-
-LOCK TABLES `bp_brand` WRITE;
-/*!40000 ALTER TABLE `bp_brand` DISABLE KEYS */;
-/*!40000 ALTER TABLE `bp_brand` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `bb_company_address`
@@ -466,6 +434,38 @@ LOCK TABLES `bo_order_return_reason` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `bp_brand`
+--
+
+DROP TABLE IF EXISTS `bp_brand`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `bp_brand` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `name` varchar(64) DEFAULT NULL COMMENT '名称',
+  `first_letter` varchar(8) DEFAULT NULL COMMENT '首字母',
+  `sort` int(11) DEFAULT NULL COMMENT '排序',
+  `factory_status` int(1) DEFAULT NULL COMMENT '是否为品牌制造商：0->不是；1->是',
+  `show_status` int(1) DEFAULT NULL COMMENT '是否显示',
+  `product_count` int(11) DEFAULT NULL COMMENT '产品数量',
+  `product_comment_count` int(11) DEFAULT NULL COMMENT '产品评论数量',
+  `logo` varchar(255) DEFAULT NULL COMMENT '品牌logo',
+  `big_pic` varchar(255) DEFAULT NULL COMMENT '专区大图',
+  `brand_story` text COMMENT '品牌故事',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='商品品牌表';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `bp_brand`
+--
+
+LOCK TABLES `bp_brand` WRITE;
+/*!40000 ALTER TABLE `bp_brand` DISABLE KEYS */;
+/*!40000 ALTER TABLE `bp_brand` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `bp_product_attribute`
 --
 
@@ -614,4 +614,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-02-28  6:47:01
+-- Dump completed on 2021-02-28  7:14:30
