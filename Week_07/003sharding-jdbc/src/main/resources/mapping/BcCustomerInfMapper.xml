@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="io.lvxy.shardingjdbc.mapper.BcCustomerInfMapper">
+  <resultMap id="BaseResultMap" type="io.lvxy.shardingjdbc.pojo.BcCustomerInf">
+    <id column="customer_inf_id" jdbcType="BIGINT" property="customerInfId" />
+    <result column="customer_id" jdbcType="BIGINT" property="customerId" />
+    <result column="customer_name" jdbcType="VARCHAR" property="customerName" />
+    <result column="identity_card_type" jdbcType="TINYINT" property="identityCardType" />
+    <result column="identity_card_no" jdbcType="VARCHAR" property="identityCardNo" />
+    <result column="mobile_phone" jdbcType="INTEGER" property="mobilePhone" />
+    <result column="customer_email" jdbcType="VARCHAR" property="customerEmail" />
+    <result column="gender" jdbcType="CHAR" property="gender" />
+    <result column="user_point" jdbcType="INTEGER" property="userPoint" />
+    <result column="register_time" jdbcType="TIMESTAMP" property="registerTime" />
+    <result column="birthday" jdbcType="TIMESTAMP" property="birthday" />
+    <result column="customer_level" jdbcType="TINYINT" property="customerLevel" />
+    <result column="user_money" jdbcType="DECIMAL" property="userMoney" />
+    <result column="modified_time" jdbcType="TIMESTAMP" property="modifiedTime" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from bc_customer_inf
+    where customer_inf_id = #{customerInfId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="io.lvxy.shardingjdbc.pojo.BcCustomerInf">
+    insert into bc_customer_inf (customer_inf_id,customer_id, customer_name,
+      identity_card_type, identity_card_no, mobile_phone, 
+      customer_email, gender, user_point, 
+      register_time, birthday, customer_level, 
+      user_money, modified_time)
+    values ( #{customerInfId},#{customerId}, #{customerName,jdbcType=VARCHAR},
+      #{identityCardType,jdbcType=TINYINT}, #{identityCardNo,jdbcType=VARCHAR}, #{mobilePhone,jdbcType=INTEGER}, 
+      #{customerEmail,jdbcType=VARCHAR}, #{gender,jdbcType=CHAR}, #{userPoint,jdbcType=INTEGER}, 
+      #{registerTime,jdbcType=TIMESTAMP}, #{birthday,jdbcType=TIMESTAMP}, #{customerLevel,jdbcType=TINYINT}, 
+      #{userMoney,jdbcType=DECIMAL}, #{modifiedTime,jdbcType=TIMESTAMP})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="io.lvxy.shardingjdbc.pojo.BcCustomerInf">
+    update bc_customer_inf
+    set customer_id = #{customerId},
+      customer_name = #{customerName,jdbcType=VARCHAR},
+      identity_card_type = #{identityCardType,jdbcType=TINYINT},
+      identity_card_no = #{identityCardNo,jdbcType=VARCHAR},
+      mobile_phone = #{mobilePhone,jdbcType=INTEGER},
+      customer_email = #{customerEmail,jdbcType=VARCHAR},
+      gender = #{gender,jdbcType=CHAR},
+      user_point = #{userPoint,jdbcType=INTEGER},
+      register_time = #{registerTime,jdbcType=TIMESTAMP},
+      birthday = #{birthday,jdbcType=TIMESTAMP},
+      customer_level = #{customerLevel,jdbcType=TINYINT},
+      user_money = #{userMoney,jdbcType=DECIMAL},
+      modified_time = #{modifiedTime,jdbcType=TIMESTAMP}
+    where customer_inf_id = #{customerInfId,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select customer_inf_id, customer_id, customer_name, identity_card_type, identity_card_no, 
+    mobile_phone, customer_email, gender, user_point, register_time, birthday, customer_level, 
+    user_money, modified_time
+    from bc_customer_inf
+    where customer_inf_id = #{customerInfId,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select customer_inf_id, customer_id, customer_name, identity_card_type, identity_card_no, 
+    mobile_phone, customer_email, gender, user_point, register_time, birthday, customer_level, 
+    user_money, modified_time
+    from bc_customer_inf
+  </select>
+</mapper>
