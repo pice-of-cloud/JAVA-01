@@ -14,13 +14,14 @@ import java.util.logging.Logger;
  * https://github.com/brettwooldridge/HikariCP#rocket-initialization
  *
  * @author lxy
- * @date 2021/2/20 19:56 
- * @return 
+ * @date 2021/2/20 19:56
+ * @return
  */
 
 public class HikariCPEx {
     /**
      * 线程100w,提交,用时：47s
+     *
      * @param args
      */
     public static void main(String[] args) {
@@ -48,11 +49,11 @@ public class HikariCPEx {
             pstm = con.prepareStatement(sql);
             Long startTime = System.currentTimeMillis();
             for (Long i = 1000006l; i <= 2000006l; i++) {
-                pstm.setLong(1, i+2);
-                pstm.setLong(2, i+1);
-                pstm.setString(3, "订单编号"+i);
+                pstm.setLong(1, i + 2);
+                pstm.setLong(2, i + 1);
+                pstm.setString(3, "订单编号" + i);
                 pstm.setDate(4, (java.sql.Date) new Date(startTime));
-                pstm.setString(5, "用户帐号"+i);
+                pstm.setString(5, "用户帐号" + i);
 
                 pstm.setFloat(6, 0.1f);
                 pstm.setFloat(7, 0.2f);
@@ -88,7 +89,7 @@ public class HikariCPEx {
             }
             pstm.executeBatch();
             Long endTime = System.currentTimeMillis();
-            System.out.println("100w,提交,用时：" + (endTime - startTime)/1000+"s");
+            System.out.println("100w,提交,用时：" + (endTime - startTime) / 1000 + "s");
         } catch (SQLException ex) {
 
             Logger lgr = Logger.getLogger(HikariCPEx.class.getName());

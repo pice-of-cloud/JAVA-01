@@ -30,8 +30,8 @@ public class MainDemo {
                     " status, order_type, delivery_company, delivery_sn, auto_confirm_day, receiver_name, receiver_phone, receiver_post_code, receiver_province, receiver_city, " +
                     "receiver_region, receiver_detail_address, note, confirm_status, delete_status, payment_time, delivery_time, receive_time, comment_time, modify_time) " +
                     "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, " +
-                            "?, ?, ?, ?, ?, ?, ?, ?, ?, ?, " +
-                            "?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                    "?, ?, ?, ?, ?, ?, ?, ?, ?, ?, " +
+                    "?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             //(1, 1222222, '11', null, 'user1', 1111.00, 888.00, 111.00,   111, 111, 1, 1,   '1', '1', 1,
             // '1dsfsdf', '11111111111', '12233333', '被那个大大的', '上海', '订单', '的点点滴滴', 'cerres', 1, 1,
             // '2021-03-07 13:38:45', '2021-03-09 21:38:51', '2021-03-11 21:38:57', '2021-03-11 21:39:03', '2021-03-07 21:39:08');
@@ -40,10 +40,10 @@ public class MainDemo {
             for (Long i = 5l; i < 1000006l; i++) {
                 //pstm.setLong(1, i+2);
                 int k = 0;
-                pstm.setLong(++k, i+1);
-                pstm.setString(++k, "订单编号"+i);
+                pstm.setLong(++k, i + 1);
+                pstm.setString(++k, "订单编号" + i);
                 pstm.setDate(++k, (java.sql.Date) new Date(startTime));
-                pstm.setString(++k, "用户帐号"+i);
+                pstm.setString(++k, "用户帐号" + i);
 
                 pstm.setFloat(++k, 0.1f);
                 pstm.setFloat(++k, 0.2f);
@@ -81,9 +81,9 @@ public class MainDemo {
             pstm.close();
             con.close();
             Long endTime = System.currentTimeMillis();
-            System.out.println("100w,提交,用时：" + (endTime - startTime)/1000+"s");
+            System.out.println("100w,提交,用时：" + (endTime - startTime) / 1000 + "s");
 
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

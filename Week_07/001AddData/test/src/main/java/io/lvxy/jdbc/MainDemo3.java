@@ -10,52 +10,70 @@ import java.util.concurrent.Executors;
 
 /**
  * TODO
+ * 线程100w,提交,用时：22s
  *
  * @author lxy
  * @version 1.0
  * @date 2021/2/20 12:25
  */
-public class MainDemo2 {
+public class MainDemo3 {
 
 
-    /*
-      单线程 100w,提交,用时：23s
-     */
     public static void main(String[] args) throws SQLException {
 
         try {
 
             Long startTime = System.currentTimeMillis();
+            Thread t1 = new MyTask();
+            t1.start();
 
-            final int countSize = 4;
-            CountDownLatch latch = new CountDownLatch(countSize);
-            ExecutorService taskExecutor = Executors.newFixedThreadPool(2);
-            for (int i=1; i<= countSize; i++){
-                taskExecutor.execute(new MyTask(latch));
-            }
-            try {
-                latch.await();
-                taskExecutor.shutdown();
-            } catch (InterruptedException E) {
-                // handle
-            }
+            Thread t2 = new MyTask();
+            t2.start();
 
+            Thread t3 = new MyTask();
+            t3.start();
+
+            Thread t4 = new MyTask();
+            t4.start();
+
+            Thread t5 = new MyTask();
+            t5.start();
+
+            Thread t6 = new MyTask();
+            t6.start();
+
+            Thread t7 = new MyTask();
+            t7.start();
+
+            Thread t8 = new MyTask();
+            t8.start();
+
+            t1.join();
+            t2.join();
+            t3.join();
+            t4.join();
+            t5.join();
+            t6.join();
+            t7.join();
+            t8.join();
             Long endTime = System.currentTimeMillis();
-            System.out.println("100w,提交,用时：" + (endTime - startTime)/1000+"s");
+            System.out.println("100w,提交,用时：" + (endTime - startTime) / 1000 + "s");
 
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    static class  MyTask implements Runnable{
-        private CountDownLatch countDownLatch;
-        public MyTask(CountDownLatch count){
-            this.countDownLatch = count;
-        }
+    static class MyTask extends Thread {
         @Override
         public void run() {
             Connection con = JdbcUtils.getConn();
+            //设置不允许自动提交
+//            try {
+//                con.setAutoCommit(false);
+//            } catch (SQLException throwables) {
+//                throwables.printStackTrace();
+//            }
             String sql = "INSERT INTO businessCenter.bo_order " +
                     "( customer_id, order_sn, create_time, user_username, total_amount, pay_amount, freight_amount, pay_type, source_type," +
                     " status, order_type, delivery_company, delivery_sn, auto_confirm_day, receiver_name, receiver_phone, receiver_post_code, receiver_province, receiver_city, " +
@@ -73,7 +91,7 @@ public class MainDemo2 {
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
             }
-            for (Long i = 1l; i < 250006l; i++) {
+            for (Long i = 1l; i < 125000l; i++) {
                 //pstm.setLong(1, i+2);
                 int k = 0;
                 try {
@@ -120,10 +138,11 @@ public class MainDemo2 {
             }
             try {
                 pstm.executeBatch();
-
-                pstm.close();
+                pstm.clearBatch();
+                //con.commit();
                 con.close();
-                countDownLatch.countDown();
+                pstm.close();
+
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
             }

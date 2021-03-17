@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.Random;
 import java.util.concurrent.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -19,14 +20,15 @@ import java.util.logging.Logger;
  * https://github.com/brettwooldridge/HikariCP#rocket-initialization
  *
  * @author lxy
- * @date 2021/2/20 19:56 
- * @return 
+ * @date 2021/2/20 19:56
+ * @return
  */
 
 public class HikariCPEx1 {
     /**
      * 线程100w,提交,用时：CountDownLatch=2 thread=2,26s thread=3,14s  thread=4,14s thread=4,15s thread=5,15s
-     *CountDownLatch=3 thread=3,18s  thread=4,18s
+     * CountDownLatch=3 thread=3,18s  thread=4,18s
+     *
      * @param args
      */
     public static void main(String[] args) {
@@ -53,8 +55,8 @@ public class HikariCPEx1 {
         final int countSize = 3;
         CountDownLatch latch = new CountDownLatch(countSize);
         ExecutorService taskExecutor = Executors.newFixedThreadPool(4);
-        for (int i=1; i<= countSize; i++){
-            taskExecutor.execute(new MyTask(latch,ds,sql));
+        for (int i = 1; i <= countSize; i++) {
+            taskExecutor.execute(new MyTask(latch, ds, sql));
         }
         try {
             latch.await();
@@ -63,17 +65,18 @@ public class HikariCPEx1 {
             // handle
         }
         Long endTime = System.currentTimeMillis();
-        System.out.println("100w,提交,用时：" + (endTime - startTime)/1000+"s");
+        System.out.println("100w,提交,用时：" + (endTime - startTime) / 1000 + "s");
 
     }
 
-    static class  MyTask implements Runnable{
+    static class MyTask implements Runnable {
         private CountDownLatch countDownLatch;
         HikariDataSource ds;
         String sql;
         Connection con;
         PreparedStatement pstm;
-        public MyTask(CountDownLatch count, HikariDataSource ds, String sql){
+
+        public MyTask(CountDownLatch count, HikariDataSource ds, String sql) {
             this.countDownLatch = count;
             this.ds = ds;
             this.sql = sql;
@@ -84,8 +87,10 @@ public class HikariCPEx1 {
                 throwables.printStackTrace();
             }
         }
+
         @Override
         public void run() {
+            Random random = new Random(1000);
             for (Long i = 1l; i < 250006l; i++) {
                 //pstm.setLong(1, i+2);
                 int k = 0;
@@ -94,7 +99,7 @@ public class HikariCPEx1 {
 
                     pstm.setString(++k, "订单编号" + i);
                     pstm.setDate(++k, (Date) new Date(System.currentTimeMillis()));
-                    pstm.setString(++k, "用户帐号" + i);
+                    pstm.setString(++k, String.valueOf(random.nextInt()));
 
                     pstm.setFloat(++k, 0.1f);
                     pstm.setFloat(++k, 0.2f);

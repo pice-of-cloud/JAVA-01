@@ -9,7 +9,8 @@ public class PropertiesUtil {
 
     public PropertiesUtil() {
     }
-    public static boolean loadFile(String fileName){
+
+    public static boolean loadFile(String fileName) {
         try {
             properties.load(PropertiesUtil.class.getClassLoader().getResourceAsStream(fileName));
         } catch (IOException e) {
@@ -18,7 +19,8 @@ public class PropertiesUtil {
         }
         return true;
     }
-    public static String getPropertyValue(String key){
+
+    public static String getPropertyValue(String key) {
         return properties.getProperty(key);
     }
 
