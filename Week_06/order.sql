@@ -2,7 +2,7 @@
 --
 -- Host: 127.0.0.1    Database: businessCenter
 -- ------------------------------------------------------
--- Server version	5.7.23
+-- Server version	5.7.23-log
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -116,7 +116,7 @@ CREATE TABLE `bc_customer_inf` (
   `customer_name` varchar(20) NOT NULL COMMENT '用户真实姓名',
   `identity_card_type` tinyint(4) NOT NULL DEFAULT '1' COMMENT '证件类型：1 身份证，2 军官证，3 护照',
   `identity_card_no` varchar(20) DEFAULT NULL COMMENT '证件号码',
-  `mobile_phone` int(10) unsigned DEFAULT NULL COMMENT '手机号',
+  `mobile_phone` int(11) DEFAULT NULL COMMENT '手机号',
   `customer_email` varchar(50) DEFAULT NULL COMMENT '邮箱',
   `gender` char(1) DEFAULT NULL COMMENT '性别',
   `user_point` int(11) NOT NULL DEFAULT '0' COMMENT '用户积分',
@@ -292,6 +292,57 @@ CREATE TABLE `bo_order` (
 LOCK TABLES `bo_order` WRITE;
 /*!40000 ALTER TABLE `bo_order` DISABLE KEYS */;
 /*!40000 ALTER TABLE `bo_order` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `bo_order1`
+--
+
+DROP TABLE IF EXISTS `bo_order1`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `bo_order1` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '订单id',
+  `customer_id` bigint(20) NOT NULL COMMENT '用户d',
+  `order_sn` varchar(64) DEFAULT NULL COMMENT '订单编号',
+  `create_time` datetime DEFAULT NULL COMMENT '提交时间',
+  `user_username` varchar(64) DEFAULT NULL COMMENT '用户帐号',
+  `total_amount` decimal(10,2) DEFAULT NULL COMMENT '订单总金额',
+  `pay_amount` decimal(10,2) DEFAULT NULL COMMENT '应付金额（实际支付金额）',
+  `freight_amount` decimal(10,2) DEFAULT NULL COMMENT '运费金额',
+  `pay_type` int(1) DEFAULT NULL COMMENT '支付方式：0->未支付；1->支付宝；2->微信',
+  `source_type` int(1) DEFAULT NULL COMMENT '订单来源：0->PC订单；1->app订单',
+  `status` int(1) DEFAULT NULL COMMENT '订单状态：0->待付款；1->待发货；2->已发货；3->已完成；4->已关闭；5->无效订单',
+  `order_type` int(1) DEFAULT NULL COMMENT '订单类型：0->正常订单；1->秒杀订单',
+  `delivery_company` varchar(64) DEFAULT NULL COMMENT '物流公司(配送方式)',
+  `delivery_sn` varchar(64) DEFAULT NULL COMMENT '物流单号',
+  `auto_confirm_day` int(11) DEFAULT NULL COMMENT '自动确认时间（天）',
+  `receiver_name` varchar(100) NOT NULL COMMENT '收货人姓名',
+  `receiver_phone` varchar(32) NOT NULL COMMENT '收货人电话',
+  `receiver_post_code` varchar(32) DEFAULT NULL COMMENT '收货人邮编',
+  `receiver_province` varchar(32) DEFAULT NULL COMMENT '省份/直辖市',
+  `receiver_city` varchar(32) DEFAULT NULL COMMENT '城市',
+  `receiver_region` varchar(32) DEFAULT NULL COMMENT '区',
+  `receiver_detail_address` varchar(200) DEFAULT NULL COMMENT '详细地址',
+  `note` varchar(500) DEFAULT NULL COMMENT '订单备注',
+  `confirm_status` int(1) DEFAULT NULL COMMENT '确认收货状态：0->未确认；1->已确认',
+  `delete_status` int(1) NOT NULL DEFAULT '0' COMMENT '删除状态：0->未删除；1->已删除',
+  `payment_time` datetime DEFAULT NULL COMMENT '支付时间',
+  `delivery_time` datetime DEFAULT NULL COMMENT '发货时间',
+  `receive_time` datetime DEFAULT NULL COMMENT '确认收货时间',
+  `comment_time` datetime DEFAULT NULL COMMENT '评价时间',
+  `modify_time` datetime DEFAULT NULL COMMENT '修改时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='订单表';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `bo_order1`
+--
+
+LOCK TABLES `bo_order1` WRITE;
+/*!40000 ALTER TABLE `bo_order1` DISABLE KEYS */;
+/*!40000 ALTER TABLE `bo_order1` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -614,4 +665,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-02-28  7:16:47
+-- Dump completed on 2021-03-13 17:36:19

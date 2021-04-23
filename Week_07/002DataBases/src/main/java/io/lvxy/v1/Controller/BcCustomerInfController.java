@@ -1,16 +1,13 @@
-package io.lvxy.shardingjdbc.Controller;
+package io.lvxy.v1.Controller;
 
-
-import io.lvxy.shardingjdbc.Util.IDUtil;
-import io.lvxy.shardingjdbc.pojo.BcCustomerInf;
-import io.lvxy.shardingjdbc.pojo.BcCustomerLogin;
-import io.lvxy.shardingjdbc.pojo.BoOrder;
-import io.lvxy.shardingjdbc.service.BcCustomerInfService;
-import io.lvxy.shardingjdbc.service.BcCustomerLoginService;
-import io.lvxy.shardingjdbc.service.BoOrderService;
+import io.lvxy.v1.pojo.BcCustomerInf;
+import io.lvxy.v1.pojo.BcCustomerLogin;
+import io.lvxy.v1.service.BcCustomerInfService;
+import io.lvxy.v1.service.BcCustomerLoginService;
+import io.lvxy.v1.service.BoOrderService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -33,9 +30,9 @@ public class BcCustomerInfController {
     private BcCustomerLoginService bcCustomerLoginService;
 
 
-    @PostMapping("addUserinf/{username}")
+    @RequestMapping("addUserinf/{username}")
     public void testWrite(@PathVariable String username) {
-        BcCustomerLogin bcCustomerLogin = bcCustomerLoginService.selectByPrimaryKeyFromMaster(821672251614035968L);
+        BcCustomerLogin bcCustomerLogin = bcCustomerLoginService.selectByPrimaryKeyFromMaster(1);
         BcCustomerInf bcCustomerInf = new BcCustomerInf();
         bcCustomerInf.setCustomerName(bcCustomerLogin.getLoginName());
         bcCustomerInf.setCustomerId(bcCustomerLogin.getCustomerId());
@@ -55,16 +52,14 @@ public class BcCustomerInfController {
 
     @RequestMapping("getUsers")
     public String testRead() {
-        BcCustomerLogin bcCustomerLogin = bcCustomerLoginService.selectByPrimaryKey(821672251614035968L);
-        return bcCustomerLogin.getLoginName();
+        return bcCustomerLoginService.selectByPrimaryKey(1).toString();
     }
 
-    @PostMapping("saveUsers/{username}")
+    @RequestMapping("saveUsers/{username}")
     public void testSave(@PathVariable String username) {
         List<BcCustomerLogin> list = new ArrayList<>(1500);
         for (int i = 0; i<=1500; i++){
             BcCustomerLogin bcCustomerLogin = new BcCustomerLogin();
-            bcCustomerLogin.setCustomerId(IDUtil.getRandomId());
             bcCustomerLogin.setLoginName(username+i);
             bcCustomerLogin.setPassword("09999000"+i);
             Byte stats = 10 >> 2;
@@ -81,7 +76,6 @@ public class BcCustomerInfController {
 
         for (int i = 0; i<=10; i++){
             BcCustomerLogin bcCustomerLogin = new BcCustomerLogin();
-            bcCustomerLogin.setCustomerId(IDUtil.getRandomId());
             bcCustomerLogin.setLoginName(username+i);
             bcCustomerLogin.setPassword("09999000"+i);
             Byte stats = 10 >> 2;
@@ -91,10 +85,9 @@ public class BcCustomerInfController {
         }
     }
 
-    @PostMapping("saveUserLogin/{username}")
+    @RequestMapping("saveUserLogin/{username}")
     public void testSaveLogin(@PathVariable String username) {
         BcCustomerLogin bcCustomerLogin = new BcCustomerLogin();
-        bcCustomerLogin.setCustomerId(IDUtil.getRandomId());
         bcCustomerLogin.setLoginName(username);
         bcCustomerLogin.setPassword("000000kk");
         Byte stats = 10 >> 2;
@@ -105,54 +98,8 @@ public class BcCustomerInfController {
 
     }
     @RequestMapping("getUserNow/{cid}")
-    public String testReadFromMaster(@PathVariable long cid) {
+    public String testReadFromMaster(@PathVariable int cid) {
 
-        return bcCustomerLoginService.selectByPrimaryKeyFromMaster(821672251614035968L).toString();
-    }
-
-    @RequestMapping("addOrder")
-    public void  testOrderAdd(){
-        BoOrder boOrder = new BoOrder();
-        boOrder.setId(822598747354562561L);
-        boOrder.setOrderType(1);
-        boOrder.setOrderSn(IDUtil.getRandomId()+"test");
-        boOrder.setCustomerId(821672251614035967L);
-        boOrder.setConfirmStatus(1);
-        boOrder.setCreateTime(new Date(System.currentTimeMillis()));
-        boOrder.setCommentTime(new Date(System.currentTimeMillis()));
-
-        boOrder.setDeleteStatus(0);
-        boOrder.setDeliveryCompany("DeliveryCompany");
-        boOrder.setDeliverySn("27364783265345873");
-        boOrder.setDeliveryTime(new Date(System.currentTimeMillis()));
-
-        boOrder.setFreightAmount(new BigDecimal(100));
-
-        boOrder.setModifyTime(new Date(System.currentTimeMillis()-10000));
-        boOrder.setNote("test");
-
-        boOrder.setPayAmount(new BigDecimal(98));
-        boOrder.setPaymentTime(new Date(System.currentTimeMillis()));
-        boOrder.setPayType(1);
-
-        boOrder.setReceiverCity("北京");
-        boOrder.setReceiverDetailAddress("1111111");
-        boOrder.setReceiverName("海淀");
-        boOrder.setReceiverPhone("1901111111");
-        boOrder.setReceiverRegion("ReceiverRegion");
-        boOrder.setReceiverProvince("beijing");
-        boOrder.setReceiveTime(new Date(System.currentTimeMillis()+10000));
-        boOrder.setReceiverPostCode("101010");
-
-        boOrder.setSourceType(1);
-        boOrder.setStatus(1);
-
-        boOrder.setTotalAmount(new BigDecimal(100.00));
-
-        boOrder.setUserUsername(":userId");
-
-        boOrder.setAutoConfirmDay(1);
-        boOrder.setSourceType(1);
-        boOrderService.insert(boOrder);
+        return bcCustomerLoginService.selectByPrimaryKeyFromMaster(1).toString();
     }
 }

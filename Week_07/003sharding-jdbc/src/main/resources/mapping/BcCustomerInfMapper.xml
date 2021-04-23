@@ -33,6 +33,15 @@
       #{registerTime,jdbcType=TIMESTAMP}, #{birthday,jdbcType=TIMESTAMP}, #{customerLevel,jdbcType=TINYINT}, 
       #{userMoney,jdbcType=DECIMAL}, #{modifiedTime,jdbcType=TIMESTAMP})
   </insert>
+  <insert id="insertBatch" >
+    insert into bc_customer_login  (customer_id,login_name, password,user_stats, modified_time)
+    values
+    <foreach collection ="list" item="cust" separator =",">
+      (#{cust.customerId}, #{cust.loginName}, #{cust.password},
+      #{cust.userStats}, #{cust.modifiedTime})
+    </foreach >
+  </insert>
+
   <update id="updateByPrimaryKey" parameterType="io.lvxy.shardingjdbc.pojo.BcCustomerInf">
     update bc_customer_inf
     set customer_id = #{customerId},
